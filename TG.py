@@ -1,11 +1,15 @@
 import cv2
 
 # Carregar a imagem
-img = cv2.imread('caixadahora.jpg')
+img = cv2.VideoCapture(0)
+ret, img = img.read()
 
 # Verificar se a imagem foi carregada corretamente
 if img is None:
     print("Erro ao carregar a imagem.")
+
+cv2.imshow("Imagem original", img)
+cv2.waitKey(0)
 
 # Reduzir o ruído
 img = cv2.GaussianBlur(img, (5, 5), 0)
